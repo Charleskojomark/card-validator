@@ -1,6 +1,6 @@
 # Card Number Validator API
 
-A clean, production-ready REST API for validating credit card numbers, built as part of the Backend Developer Intern Assessment.
+A clean, production-ready REST API for validating credit card numbers.
 
 ## Overview
 
@@ -69,21 +69,7 @@ Validates a given card number. Spaces and dashes in the input are automatically 
 }
 ```
 
-## Design Decisions
 
-During the live review, I am happy to discuss these architectural choices in depth:
-
-1. **Express over a heavier framework (e.g., NestJS):**
-   A single-endpoint validation API does not warrant the heavy boilerplate and dependency injection overhead of NestJS. Express was chosen to demonstrate a fundamental understanding of HTTP routing, middleware, and request validation without hiding behind framework magic. 
-
-2. **The `200 OK` status for invalid cards:**
-   When a user submits a syntactically correct request with an invalid card number, the *HTTP transaction* is successful. Returning a `400 Bad Request` here would conflate HTTP semantics with business logic. Therefore, invalid cards return `200 OK` with a business payload of `"valid": false`. `400` and `422` are reserved strictly for missing/malformed HTTP requests.
-
-3. **Luhn Algorithm Utility:**
-   The Luhn logic is decoupled into a pure function (`src/utils/luhn.ts`) with zero side effects or dependencies. This makes it highly testable and easy to reuse.
-
-4. **Commit History:**
-   The project was built using atomic, logical commits to demonstrate a professional version control workflow, separating configuration, interfaces, pure functions, and API routing.
 
 ## cURL Examples
 
