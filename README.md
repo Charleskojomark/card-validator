@@ -6,6 +6,11 @@ A clean, production-ready REST API for validating credit card numbers.
 
 This project provides a single endpoint (`POST /validate-card`) that accepts a card number and validates it using the industry-standard **Luhn algorithm** (ISO/IEC 7812). It also performs card scheme detection (Visa, Mastercard, Amex, Discover) based on IIN prefixes.
 
+## Live Demo
+
+The API is deployed and accessible at:
+**`https://card-validator-azure.vercel.app`**
+
 ## Setup Instructions
 
 ### Prerequisites
